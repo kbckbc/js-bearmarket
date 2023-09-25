@@ -19,9 +19,9 @@ const passport = require('./lib/passport.js')(app);
 global.debug = true;
 global.UPLOAD_FOLDER = 'uploads';
 // set null to MONGODB_URI_LOCAL when deploy.
-// global.MONGODB_URI_LOCAL = 'mongodb+srv://bearmarket:yKXp4xxtWViDSCPh@cluster0.swhee.mongodb.net/';
-global.MONGODB_URI_LOCAL = 'mongodb://localhost:27017/';
-global.port = 3458;
+global.MONGODB_URI_LOCAL = 'mongodb+srv://bearmarket:9etpROijcPj0tCFT@cluster0.swhee.mongodb.net/';
+//global.MONGODB_URI_LOCAL = 'mongodb://localhost:27017/';
+global.port = 3000;
 global.MONGODB_NAME = 'bearmarketDB';
 global.checkLogin = (req) => {
   if(req.user == undefined) {

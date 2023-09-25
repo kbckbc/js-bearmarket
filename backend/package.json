@@ -2,9 +2,9 @@
   "name": "bear_market",
   "version": "1.0.0",
   "description": "A second-hand market for WashU students",
-  "main": "index.js",
+  "main": "bearmarket.js",
   "scripts": {
-    "test": "node app.js"
+    "test": "node bearmarket.js"
   },
   "author": "Byeongchan Gwak",
   "license": "ISC",
@@ -18,5 +18,8 @@
     "multer": "^1.4.5-lts.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.10"
   }
 }
