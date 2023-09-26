@@ -48,6 +48,8 @@
 + Visit the app page
 
 # How to deploy 
-+ Compile the frontend and copy the output to the backend 'public' folder
++ Compile the frontend 
   - npm run build
-+ 
++ Copy the output directory(usually, dist) to the backend 'public' folder
++ Run backend
+  - npm run test
