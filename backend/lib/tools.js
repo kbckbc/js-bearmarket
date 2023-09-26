@@ -1,8 +1,7 @@
 module.exports = {
   // example of implicit Promise return
   getDb1: (collName) => {
-    const uri = process.env.MONGODB_URI || global.MONGODB_URI_LOCAL;
-
+    const uri = global.DB_URI;    
     return require('mongodb').MongoClient.connect(uri)
       .then(db => db.db("nextbrainDB"))
       .then(db => db.collection(collName))
@@ -12,7 +11,7 @@ module.exports = {
   // example of explicit Promise return
   getDb2: (collName) => {
     return new Promise((resolve, reject) => {
-      const uri = process.env.MONGODB_URI || global.MONGODB_URI_LOCAL;
+      const uri = global.DB_URI;
   
       require('mongodb').MongoClient.connect(uri, function(err, db) {
         if (err) reject(new Error(err));
@@ -28,8 +27,10 @@ module.exports = {
   getDb: async (collName) => {
     // // mongo db
     const { MongoClient } = require("mongodb");
-    const uri = process.env.MONGODB_URI || global.MONGODB_URI_LOCAL;
-    const dbName = global.MONGODB_NAME;
+    const uri = global.DB_URI;
+    const dbName = global.DB_NAME;
+    console.log('uri', uri);
+    console.log('dbName', dbName);
 
     try {
       const mongoClient = new MongoClient(uri);
