@@ -33,3 +33,21 @@
 # Creative portion (10 points)
 + 10 - Trade participants can rate their opponents after completing the trade and all logged in users can see this. The user's evaluation can be used as a judgment index of the next transaction.
 
+
+# How to test on local
++ Copy this src: git clone [gitrepository]
++ install mongodb on your local pc
+  - create 'bearmarketDB'
+  - create collections: 'item' 'item_comment' 'user' 'user_review' 
++ Run frontend(If you haven't install vue-cli, you need to install it first)
+  - npm i --force
+  - npm run serve
++ Run backend
+  - npm i --force
+  - npm run test
++ Visit the app page
+
+# How to deploy 
++ Compile the frontend and copy the output to the backend 'public' folder
+  - npm run build
++ 
