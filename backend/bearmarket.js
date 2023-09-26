@@ -1,17 +1,19 @@
 //////////////////
 // Setting global variables start
 //////////////////
-global.debug = true;
+global.debug = false;
 // when test on Local, enable this variable
 if(global.debug) {
+  console.log('global.debug true');
   global.PORT = 3000;
   global.DB_URI = 'mongodb://0.0.0.0:27017/';
   global.DB_NAME = 'bearmarketDB';
 }
 // when deploy, comments this variable and set DB_URI on fly.io Server
 else {
+  console.log('global.debug false');
   global.PORT = 3000;
-  global.DB_URI = proccess.env.DB_URI;
+  global.DB_URI = process.env.DB_URI;
   global.DB_NAME = 'bearmarketDB';
 }
 global.UPLOAD_FOLDER = 'uploads';
