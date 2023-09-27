@@ -1,3 +1,21 @@
+// express
+const express = require('express');
+app = express();
+var flash = require('connect-flash');
+
+
+// middleware
+app.use(express.static('public'));
+app.use(express.static('/uploads'));
+app.use(express.json({limit:'1mb'}));
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(flash());
+
+
+// passport
+const passport = require('./lib/passport.js')(app);
+
+
 //////////////////
 // Setting global variables start
 //////////////////
@@ -16,7 +34,8 @@ else {
   global.DB_URI = process.env.DB_URI;
   global.DB_NAME = 'bearmarketDB';
 }
-global.UPLOAD_FOLDER = 'uploads';
+global.UPLOAD_FOLDER = '/uploads';
+console.log('print:', process.env.VUE_APP_ROOT_API);
 
 global.checkLogin = (req) => {
   if(req.user == undefined) {
@@ -30,22 +49,6 @@ global.checkLogin = (req) => {
 // Setting global variables end
 //////////////////
 
-
-// middleware
-
-// express
-const express = require('express');
-app = express();
-var flash = require('connect-flash');
-app.use(express.static('public'));
-app.use(express.static('uploads'));
-app.use(express.json({limit:'1mb'}));
-app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-app.use(flash());
-
-
-// passport
-const passport = require('./lib/passport.js')(app);
 
 // router
 app.use('/auth', require('./routes/auth')(passport));
