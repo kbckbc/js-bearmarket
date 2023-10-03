@@ -20,14 +20,16 @@ const passport = require('./lib/passport.js')(app);
 // Setting global variables start
 //////////////////
 global.debug = false;
-// when test on Local, enable this variable
+// when test on Local
+// mongodb should be install on local
 if(global.debug) {
   console.log('global.debug true');
   global.PORT = 3000;
   global.DB_URI = 'mongodb://0.0.0.0:27017/';
   global.DB_NAME = 'bearmarketDB';
 }
-// when deploy, comments this variable and set DB_URI on fly.io Server
+// when deploy
+// set DB_URI on fly.io Server as a Secret variable
 else {
   console.log('global.debug false');
   global.PORT = 3000;
