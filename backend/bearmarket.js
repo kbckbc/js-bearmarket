@@ -2,6 +2,7 @@
 const express = require('express');
 app = express();
 var flash = require('connect-flash');
+var fallback = require('express-history-api-fallback')
 
 
 // middleware
@@ -11,6 +12,11 @@ app.use(express.json({limit:'1mb'}));
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(flash());
 
+// This middleware is for 'Refreshing page'
+// when refreshing pages on backend(usually, it's the case because we run the app on delpoyment), 
+// the backend router doesn't know about frontend router
+var root = __dirname + '/public'
+app.use(fallback('index.html', { root: root }))
 
 // passport
 const passport = require('./lib/passport.js')(app);
